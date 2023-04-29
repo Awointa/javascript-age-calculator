@@ -23,10 +23,9 @@ btn.addEventListener("click", function (e) {
   const monthOfBirth = Number(document.querySelector(".input--month").value);
   const yearOfBirth = Number(document.querySelector(".input--year").value);
 
- 
-  const ageInYears  = function(){
-    
-  }
+  const ageInYears = function () {
+    console.log("lambo");
+  };
 });
 
 // ulate the difference in years var years = today.getFullYear () - birthDate.getFullYear ();

@@ -1,0 +1,137 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif, Poppins;
+  font-size: 3.2rem;
+  box-sizing: border-box;
+  background-color: var(--neutral-light-grey);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+:root {
+  --primary-purple: #854dff;
+  --primary-light-red: #ff5757;
+  --neutral-off-white: #ffffff;
+  --neutral-light-grey: #dbdbdb;
+  --neutral-smokey-grey: #716f6f;
+  --neutral-off-black: #141414;
+  --weight1: 400i;
+  --weight2: 700;
+  --weight3: 800i;
+}
+
+.container {
+  position: relative;
+  min-width: 53rem;
+  height: 45rem;
+  margin: 6rem auto;
+  padding: 4rem 0 4rem 4rem;
+  background-color: var(--neutral-off-white);
+  font-weight: var(--weight2);
+  border-radius: 2rem 2rem 12rem 2rem;
+}
+.inputs {
+  width: 43rem;
+  display: grid;
+  grid-template-columns: repeat(3, min-content);
+  grid-auto-flow: row;
+  justify-items: start;
+  align-items: end;
+  row-gap: 0.5rem;
+  column-gap: 2rem;
+  border-bottom: 1.5px solid var(--neutral-light-grey);
+  padding-bottom: 3rem;
+}
+
+.input-label {
+  font-size: 1rem;
+  font-weight: var(--weight1);
+  color: var(--neutral-smokey-grey);
+  letter-spacing: 0.1rem;
+}
+
+.input {
+  width: 10rem;
+  padding: 1rem 0 1rem 1rem;
+  font-size: 2rem;
+  font-weight: var(--weight3);
+  border: 1.3px solid var(--neutral-light-grey);
+  border-radius: 0.5rem;
+}
+
+.input--day,
+.input--month {
+  grid-row: 2/3;
+}
+
+.icon {
+  position: absolute;
+  top: 21.4%;
+  right: 8%;
+  width: 7rem;
+  height: 7rem;
+  background-color: var(--primary-purple);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.icon:hover {
+  background-color: var(--neutral-off-black);
+}
+.icon:active {
+  transform: translateY(0.5rem);
+}
+
+.icon--arrow {
+  width: 3.5rem;
+  border-radius: 50%;
+}
+
+.age__block {
+  font-size: 6rem;
+  margin-top: 3rem;
+}
+
+.output--number {
+  /* position: absolute; */
+  top: -40%;
+  color: var(--primary-purple);
+  align-self: flex-end;
+  /* margin-bottom: 2rem; */
+}
+
+.output--word {
+  color: var(--neutral-off-black);
+  /* margin-left: 9rem; */
+}
+
+.output--number,
+.output--word {
+  font-weight: var(--weight3);
+}
+
+.age {
+  position: relative;
+  align-items: center;
+  column-gap: 1rem;
+}
+
+a {
+  text-decoration: none;
+  color: var(--primary-purple);
+}

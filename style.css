@@ -1,3 +1,11 @@
+@font-face {
+  font-family: Poppins-ExtraBold-italic;
+  src: url(./assets/fonts/Poppins-ExtraBoldItalic.ttf);
+}
+@font-face {
+  font-family: Poppins-bold;
+  src: url(./assets/fonts/Poppins-Bold.ttf);
+}
 *,
 *::after,
 *::before {
@@ -11,7 +19,7 @@ html {
 }
 
 body {
-  font-family: Arial, Helvetica, sans-serif, Poppins;
+  font-family: poppins-bold;
   font-size: 3.2rem;
   box-sizing: border-box;
   background-color: var(--neutral-light-grey);
@@ -27,9 +35,9 @@ body {
   --neutral-light-grey: #dbdbdb;
   --neutral-smokey-grey: #716f6f;
   --neutral-off-black: #141414;
-  --weight1: 400i;
-  --weight2: 700;
-  --weight3: 800i;
+  --bold1: 400i;
+  --bold2: 700;
+  --bold3: 800i;
 }
 
 .container {
@@ -39,7 +47,7 @@ body {
   margin: 6rem auto;
   padding: 4rem 0 4rem 4rem;
   background-color: var(--neutral-off-white);
-  font-weight: var(--weight2);
+  font-weight: var(--bold2);
   border-radius: 2rem 2rem 12rem 2rem;
 }
 .inputs {
@@ -57,7 +65,7 @@ body {
 
 .input-label {
   font-size: 1rem;
-  font-weight: var(--weight1);
+  font-weight: var(--bold1);
   color: var(--neutral-smokey-grey);
   letter-spacing: 0.1rem;
 }
@@ -66,7 +74,7 @@ body {
   width: 10rem;
   padding: 1rem 0 1rem 1rem;
   font-size: 2rem;
-  font-weight: var(--weight3);
+  font-weight: var(--bold3);
   border: 1.3px solid var(--neutral-light-grey);
   border-radius: 0.5rem;
 }
@@ -105,6 +113,8 @@ body {
 .age__block {
   font-size: 6rem;
   margin-top: 3rem;
+  font-family: Poppins-ExtraBold-italic;
+  font-weight: var(--bold3);
 }
 
 .output--number {
@@ -122,7 +132,7 @@ body {
 
 .output--number,
 .output--word {
-  font-weight: var(--weight3);
+  font-weight: var(--bold3);
 }
 
 .age {

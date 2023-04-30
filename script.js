@@ -3,15 +3,12 @@
 const currentDate = new Date();
 
 const currentDay = currentDate.getDay();
+console.log(currentDay);
 const currentMonth = currentDate.getMonth() + 1;
 console.log(currentMonth);
 const currentYear = currentDate.getFullYear();
 
 const btn = document.querySelector(".icon");
-
-const calcDate = function (todaysDate, birhtDate) {
-  return Math.abs(todaysDate - birhtDate);
-};
 
 const displayDate = function (className, value) {
   document.querySelector(className).textContent = value;
@@ -19,13 +16,20 @@ const displayDate = function (className, value) {
 
 btn.addEventListener("click", function (e) {
   e.preventDefault();
-  const dayOfBirth = Number(document.querySelector(".input--day").value);
-  const monthOfBirth = Number(document.querySelector(".input--month").value);
-  const yearOfBirth = Number(document.querySelector(".input--year").value);
+  const birthDay = Number(document.querySelector(".input--day").value);
+  const birthMonth = Number(document.querySelector(".input--month").value);
+  const birthYear = Number(document.querySelector(".input--year").value);
 
-  const ageInYears = function () {
-    console.log("lambo");
-  };
+  if (!birthDay && !birthMonth && !birthYear) return;
+  const years = birthYear - currentYear;
+  const months = birthMonth - currentMonth;
+  const days = currentDay - birthDay;
+  console.log(currentDay);
+  console.log(birthDay);
+
+  console.log(years);
+  console.log(months);
+  console.log(days);
 });
 
 // ulate the difference in years var years = today.getFullYear () - birthDate.getFullYear ();

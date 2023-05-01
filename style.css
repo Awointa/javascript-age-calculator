@@ -1,11 +1,18 @@
 @font-face {
-  font-family: Poppins-ExtraBold-italic;
-  src: url(./assets/fonts/Poppins-ExtraBoldItalic.ttf);
+  font-family: poppins;
+  src: url(./assets/fonts/Poppins-Regular.ttf);
 }
+
 @font-face {
   font-family: Poppins-bold;
   src: url(./assets/fonts/Poppins-Bold.ttf);
 }
+
+@font-face {
+  font-family: Poppins-ExtraBold-italic;
+  src: url(./assets/fonts/Poppins-ExtraBoldItalic.ttf);
+}
+
 *,
 *::after,
 *::before {
@@ -18,19 +25,9 @@ html {
   font-size: 62.5%;
 }
 
-body {
-  font-family: poppins-bold;
-  font-size: 3.2rem;
-  box-sizing: border-box;
-  background-color: var(--neutral-light-grey);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
 :root {
   --primary-purple: #854dff;
-  --primary-light-red: #ff5757;
+  --primary-light-grey: #f7f7f7f7;
   --neutral-off-white: #ffffff;
   --neutral-light-grey: #dbdbdb;
   --neutral-smokey-grey: #716f6f;
@@ -40,11 +37,22 @@ body {
   --bold3: 800i;
 }
 
+body {
+  font-family: poppins-bold;
+  font-size: 3.2rem;
+  box-sizing: border-box;
+  background-color: var(--neutral-light-grey);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 1.3;
+}
+
 .container {
   position: relative;
   min-width: 53rem;
   height: 45rem;
-  margin: 6rem auto;
+  margin: 3rem auto;
   padding: 4rem 0 4rem 4rem;
   background-color: var(--neutral-off-white);
   font-weight: var(--bold2);
@@ -111,15 +119,19 @@ body {
 }
 
 .age__block {
+  /* flex-direction: column; */
   font-size: 6rem;
-  margin-top: 3rem;
+  padding-top: 2rem;
   font-family: Poppins-ExtraBold-italic;
   font-weight: var(--bold3);
 }
+.age {
+  display: flex;
+  align-items: center;
+}
 
 .output--number {
-  /* position: absolute; */
-  top: -40%;
+  /* display: block; */
   color: var(--primary-purple);
   align-self: flex-end;
   /* margin-bottom: 2rem; */
@@ -144,4 +156,9 @@ body {
 a {
   text-decoration: none;
   color: var(--primary-purple);
+}
+
+.attribution {
+  display: flex;
+  flex-wrap: wrap;
 }

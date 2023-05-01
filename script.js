@@ -1,35 +1,40 @@
 "use strict ";
 
-const currentDate = new Date();
-
-const currentDay = currentDate.getDay();
-console.log(currentDay);
-const currentMonth = currentDate.getMonth() + 1;
-console.log(currentMonth);
-const currentYear = currentDate.getFullYear();
-
-const btn = document.querySelector(".icon");
-
 const displayDate = function (className, value) {
-  document.querySelector(className).textContent = value;
+  document.querySelector(className).innerHTML = value;
 };
 
+const btn = document.querySelector(".icon");
 btn.addEventListener("click", function (e) {
   e.preventDefault();
-  const birthDay = Number(document.querySelector(".input--day").value);
-  const birthMonth = Number(document.querySelector(".input--month").value);
-  const birthYear = Number(document.querySelector(".input--year").value);
+  let birthDay = Number(document.querySelector(".input--day").value);
+  let birthMonth = Number(document.querySelector(".input--month").value);
+  let birthYear = Number(document.querySelector(".input--year").value);
 
-  if (!birthDay && !birthMonth && !birthYear) return;
-  const years = birthYear - currentYear;
-  const months = birthMonth - currentMonth;
-  const days = currentDay - birthDay;
-  console.log(currentDay);
-  console.log(birthDay);
+  let currentDate = new Date();
+  let currentDay = currentDate.getDay();
+  let currentMonth = currentDate.getMonth() + 1;
+  let currentYear = currentDate.getFullYear();
 
-  console.log(years);
-  console.log(months);
-  console.log(days);
+  month = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+
+  if (birthDay > currentDay) {
+    currentDay += month[currentDay - 1];
+    currentMonth = currentMonth - 1;
+  }
+  if (birthMonth > currentMonth) {
+    currentMonth += 12;
+    currentYear -= 1;
+  }
+  let currentAgeInDays = currentDay - birthDay;
+  let currentAgeInMonths = currentMonth - birthMonth;
+  let currentAgeInYears = currentYear - birthYear;
+
+  console.log(currentAgeInYears);
+
+  displayDate(".output--days", currentAgeInDays);
+  displayDate(".output--months", currentAgeInMonths);
+  displayDate(".output--years", currentAgeInYears);
 });
 
 // ulate the difference in years var years = today.getFullYear () - birthDate.getFullYear ();

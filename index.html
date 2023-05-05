@@ -21,9 +21,8 @@
 
   <body>
     <div class="container">
-      <div id="error"></div>
-      <form class="inputs">
-        <label class="input-label" for="day">DAY</label>
+      <div class="inputs">
+        <label class="input-label" id="day-label" for="day">DAY</label>
         <input
           type="text"
           name="day"
@@ -31,7 +30,8 @@
           placeholder="DD"
           class="input input--day"
         />
-        <label class="input-label" for="month">MONTH</label>
+        <div class="error-message" id="day-error"></div>
+        <label class="input-label" id="month-label" for="month">MONTH</label>
         <input
           type="text"
           name="month"
@@ -39,7 +39,8 @@
           placeholder="MM"
           class="input input--month"
         />
-        <label class="input-label" for="year">YEAR</label>
+        <div class="error-message" id="month-error"></div>
+        <label class="input-label" id="year-label" for="year">YEAR</label>
         <input
           type="text"
           placeholder="YYYY"
@@ -47,7 +48,8 @@
           id="year"
           class="input input--year"
         />
-      </form>
+        <div class="error-message" id="year-error"></div>
+      </div>
 
       <div class="icon">
         <img src="./assets/images/icon-arrow.svg" alt="" class="icon--arrow" />

@@ -13,6 +13,11 @@
   src: url(./assets/fonts/Poppins-ExtraBoldItalic.ttf);
 }
 
+@font-face {
+  font-family: poppins-italic;
+  src: url(./assets/fonts/Poppins-Italic.ttf);
+}
+
 *,
 *::after,
 *::before {
@@ -31,6 +36,7 @@ html {
   --neutral-off-white: #ffffff;
   --neutral-light-grey: #dbdbdb;
   --neutral-smokey-grey: #716f6f;
+  --light-red: #ff5757;
   --neutral-off-black: #141414;
   --bold1: 400i;
   --bold2: 700;
@@ -38,7 +44,7 @@ html {
 }
 
 body {
-  font-family: poppins-bold;
+  font-family: poppins;
   font-size: 3.2rem;
   box-sizing: border-box;
   background-color: var(--neutral-light-grey);
@@ -62,11 +68,12 @@ body {
   width: 43rem;
   display: grid;
   grid-template-columns: repeat(3, min-content);
+  grid-template-rows: repeat(2, min-content) 1rem;
   grid-auto-flow: row;
   justify-items: start;
   align-items: end;
   row-gap: 0.5rem;
-  column-gap: 2rem;
+  column-gap: 1.5rem;
   border-bottom: 1.5px solid var(--neutral-light-grey);
   padding-bottom: 3rem;
 }
@@ -79,8 +86,9 @@ body {
 }
 
 .input {
-  width: 10rem;
+  width: 11rem;
   padding: 1rem 0 1rem 1rem;
+  font-family: poppins-bold;
   font-size: 2rem;
   font-weight: var(--bold3);
   border: 1.3px solid var(--neutral-light-grey);
@@ -88,14 +96,49 @@ body {
 }
 
 .input--day,
-.input--month {
+.input--month,
+.input--year {
   grid-row: 2/3;
 }
 
+#month-label {
+  grid-row: 1/2;
+  grid-column: 2/3;
+}
+
+#year-label {
+  grid-row: 1/2;
+  grid-column: 3/4;
+}
+
+#day-error,
+#month-error,
+#year-error {
+  grid-row: 3/4;
+}
+
+#day-error {
+  grid-column: 1/2;
+}
+
+#month-error {
+  grid-column: 2/3;
+}
+
+#year-error {
+  grid-column: 3/4;
+}
+
+.error-message {
+  font-family: poppins-italic;
+  font-size: 0.8rem;
+  color: var(--light-red);
+}
+
 .icon {
-  position: absolute;
-  top: 21.4%;
-  right: 8%;
+  position: fixed;
+  top: 24.5%;
+  right: 32%;
   width: 7rem;
   height: 7rem;
   background-color: var(--primary-purple);
@@ -156,6 +199,7 @@ body {
 a {
   text-decoration: none;
   color: var(--primary-purple);
+  margin-left: 1rem;
 }
 
 .attribution {

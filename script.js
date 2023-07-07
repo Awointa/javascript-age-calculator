@@ -7,7 +7,7 @@ const inputYear = document.querySelector(".input--year");
 
 //Date elements
 let currentDate = new Date();
-let currentDay = currentDate.getDay();
+let currentDay = currentDate.getDate();
 let currentMonth = currentDate.getMonth() + 1;
 let currentYear = currentDate.getFullYear();
 
@@ -20,29 +20,37 @@ const inputMonthElementError = document.getElementById("month-error");
 const inputYearElementError = document.getElementById("year-error");
 
 const resultElements = document.querySelectorAll(".output--number");
-
+// Days in a every month in a year
 let month = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 
+//Array storing error message
 let messages = [];
-const validateMonthDays = (day, givenMonth) => {
+
+// validate date
+const validateMonthDays = (givenDay, givenMonth) => {
   const daysInMonth = month[givenMonth - 1];
-  if (day > daysInMonth) {
+  if (givenDay > daysInMonth) {
     messages.push("Must be a valid date");
     inputDayElementError.textContent = messages.join(", ");
   }
 };
 
+// validate dates
 const validateAllDates = (givenDay, givenMonth, givenYear) => {
   if (
     givenDay > 31 ||
-    (givenDay == 0 && givenMonth > month.length) ||
-    (givenMonth == 0 && givenYear > 2023)
-  )
+    (givenDay == 0 && givenMonth > month.length && givenMonth == 0) ||
+    givenYear > currentYear
+  ) {
     messages = [
       "Must be a valid day",
       "Must be a valid month",
       "Must be in the past",
     ];
+    inputDayElementError.textContent = messages[0];
+    inputMonthElementError.textContent = messages[1];
+    inputYearElementError.textContent = messages[2];
+  }
 };
 
 const displayDate = function (className, value) {
@@ -56,7 +64,7 @@ btn.addEventListener("click", function (e) {
   let birthMonth = Number(inputMonth.value);
   let birthYear = Number(inputYear.value);
 
-  // error messages
+  // error messages for empty inputs
   if (birthDay == "" && birthMonth == "" && birthYear == "")
     messages.push("This field is required");
   errorElements.forEach((errElement) => {
@@ -69,12 +77,14 @@ btn.addEventListener("click", function (e) {
 
   console.log(messages);
 
+  // Error Message Handler
   if (messages.length > 0) {
     inputElements.forEach((input) => (input.style.borderColor = "#ff5757")),
       inputLabelElements.forEach(
         (inputLabel) => (inputLabel.style.color = "#ff5757"),
         (messages = [])
       );
+    return;
   } else {
     inputElements.forEach((input) => (input.style.borderColor = "#dbdbdb")),
       inputLabelElements.forEach(
@@ -82,10 +92,7 @@ btn.addEventListener("click", function (e) {
       );
   }
 
-  console.log(messages);
-
   //calculator Logic
-
   if (birthDay > currentDay) {
     currentDay += month[currentDay - 1];
     currentMonth = currentMonth - 1;
